@@ -5,7 +5,6 @@ const webpackLogger = log4js.getLogger('webpack');
 const ENV = process.env.NODE_ENV || 'development';
 
 module.exports = (env) => {
-  console.log(JSON.stringify(process.env));
   if (!env) {
     webpackLogger.info(
       `No enviroment defined on webpack call, loading NODE_ENV: ${ENV}`,

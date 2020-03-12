@@ -5,7 +5,7 @@ import { route } from '../../helpers/utils';
 
 const router = express.Router();
 const API_ROUTES: IRouteCollection = {
-  NEWS: { uri: '/news', uriRouter: feedRouter },
+  FEED: { uri: '/feed', uriRouter: feedRouter },
 };
 
 /**

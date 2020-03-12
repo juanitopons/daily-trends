@@ -2,7 +2,7 @@ import { Document } from 'mongoose';
 import { DataFeed } from './datafeed';
 
 /**
- * Interface for model NewsModel
+ * Interface for model IFeed
  *
  * @export
  * @interface IFeed
