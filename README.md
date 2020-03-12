@@ -55,8 +55,7 @@ express-server/src/config/env
 After Docker is installed, you just 'build' the images with docker-compose and run the containers:
 
 ```
-docker-compose build
-docker-compose up
+docker-compose up --build
 ```
 
 ### Enviroments
