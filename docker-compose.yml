@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  angular:
+    container_name: daily-trends-app
+    build: client
+    volumes:
+      - ./client:/usr/src/daily-trends-client
+    expose:
+      - ${CLIENT_INTERNAL_PORT}
+    ports:
+      - "${CLIENT_EXTERNAL_PORT}:${CLIENT_INTERNAL_PORT}"
+
+  express:
+    container_name: daily-trends-server
+    build: server
+    volumes:
+      - ./server:/usr/src/daily-trends-server
+    expose:
+      - ${SERVER_INTERNAL_PORT}
+    ports:
+      - "${SERVER_EXTERNAL_PORT}:${SERVER_INTERNAL_PORT}"
+      - "${NODE_DEBUG_AND_PORT}"
+    env_file: .env
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    restart: always
+    ports:
+      - "${MONGO_EXTERNAL_PORT}:${MONGO_PORT}"

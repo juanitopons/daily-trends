@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "path": "client"
+    },
+    {
+      "path": "server"
+    },
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      // ...
+      "client": true,
+      "server": true
+    },
+    "files.autoSave": "onFocusChange",
+    "explorer.openEditors.visible": 10,
+    "window.zoomLevel": 1,
+    "puglint.enable": true,
+    "workbench.iconTheme": "vscode-icons",
+    "guides.active.gutter": true,
+    "guides.sendUsagesAndStats": false,
+    "todo-tree.tree.showScanModeButton": false,
+    "eslint.alwaysShowStatus": true
+  }
+}

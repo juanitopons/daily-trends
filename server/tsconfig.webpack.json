@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "rootDir": ".",
+    "mapRoot": ".",
+    "outDir": "./dist/",
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "target": "es2018",
+    "lib": ["es2018", "dom"],
+    "typeRoots": ["node_modules/@types", "typings.d.ts"]
+  },
+  "exclude": ["test/**/*.test.ts"]
+}
