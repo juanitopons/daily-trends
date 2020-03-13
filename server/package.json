@@ -10,16 +10,17 @@
     "lint-fix": "eslint . --ext .js,.ts --fix",
     "pre-commit": "lint-staged",
     "pre-push": "npm run format-check",
+    "build": "npm run webpack",
     "webpack": "per-env",
     "webpack:development": "webpack --env=development --mode=development",
-    "webpack:staging": "webpack webpack --env=staging --mode=production",
-    "webpack:production": "webpack webpack --env=production --mode=production",
+    "webpack:staging": "webpack --env=staging --mode=production",
+    "webpack:production": "webpack --env=production --mode=production",
     "test": "npx mocha --reporter spec",
     "start": "per-env",
-    "start:development": "webpack --mode=development --watch",
-    "start:staging": "webpack --mode=production && node dist/server.js",
-    "start:production": "webpack --mode=production && node dist/server.js",
-    "nodemon": "nodemon --inspect dist/server.js"
+    "start:development": "webpack --env=development --mode=development --watch",
+    "start:staging": "npm run webpack:staging && node dist/server.js",
+    "start:production": "npm run webpack:production && node dist/server.js",
+    "nodemon": "nodemon --inspect=0.0.0.0 dist/server.js"
   },
   "license": "ISC",
   "dependencies": {
