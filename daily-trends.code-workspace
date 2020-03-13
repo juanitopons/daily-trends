@@ -24,6 +24,8 @@
     "guides.active.gutter": true,
     "guides.sendUsagesAndStats": false,
     "todo-tree.tree.showScanModeButton": false,
-    "eslint.alwaysShowStatus": true
+    "eslint.alwaysShowStatus": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
   }
 }
