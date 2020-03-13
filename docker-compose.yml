@@ -3,24 +3,27 @@ version: "3.7"
 services:
   angular:
     container_name: daily-trends-app
-    build: client
+    build:
+      context: client
+      args:
+        CLIENT_INTERNAL_PORT: ${CLIENT_INTERNAL_PORT}
     volumes:
       - ./client:/usr/src/daily-trends-client
-    expose:
-      - ${CLIENT_INTERNAL_PORT}
     ports:
-      - "${CLIENT_EXTERNAL_PORT}:${CLIENT_INTERNAL_PORT}"
+      - ${CLIENT_EXTERNAL_PORT}:${CLIENT_INTERNAL_PORT}
+    env_file: .env
 
   express:
     container_name: daily-trends-server
-    build: server
+    build:
+      context: server
+      args:
+        SERVER_INTERNAL_PORT: ${SERVER_INTERNAL_PORT}
     volumes:
       - ./server:/usr/src/daily-trends-server
-    expose:
-      - ${SERVER_INTERNAL_PORT}
     ports:
-      - "${SERVER_EXTERNAL_PORT}:${SERVER_INTERNAL_PORT}"
-      - "${NODE_DEBUG_AND_PORT}"
+      - ${SERVER_EXTERNAL_PORT}:${SERVER_INTERNAL_PORT}
+      - ${NODE_DEBUG_AND_PORT}:${NODE_DEBUG_AND_PORT}
     env_file: .env
     links:
       - mongo
@@ -30,4 +33,5 @@ services:
     image: mongo:latest
     restart: always
     ports:
-      - "${MONGO_EXTERNAL_PORT}:${MONGO_PORT}"
+      - ${MONGO_EXTERNAL_PORT}:${MONGO_PORT}
+    env_file: .env
